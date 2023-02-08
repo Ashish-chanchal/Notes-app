@@ -38,8 +38,8 @@ function shownotes() {
     let notes = localStorage.getItem("notes");
     let notestitle = localStorage.getItem('notestitle');
     if ((notes == null) || (notestitle == null)) {
-        notesObj = [];
-        notestitleObj = [];
+        let notesObj = [];
+        let notestitleObj = [];
     }
     else {
         notesObj = JSON.parse(notes);
@@ -57,6 +57,7 @@ function shownotes() {
              <a onclick="deletenote(this.id)" id="${i}" class="btn btn-primary rembtn">Delete Note</a>
            </div>
    </div>`;
+   console.log(i);
     }
     let notesElm = document.getElementById("notes");
     if (notesObj.length != 0) {
@@ -70,14 +71,15 @@ function deletenote(index) {
     let notes = localStorage.getItem("notes");
     let notestitle = localStorage.getItem('notesTitle');
     if ((notes == null) || (notestitle == null)) {
-        notesObj = [];
-        notestitleObj = [];
+        let notesObj = [];
+        let notestitleObj = [];
     }
     else {
         notesObj = JSON.parse(notes);
         notestitleObj = JSON.parse(notestitle);
     }
     notesObj.splice(index, 1);
+    notestitleObj.splice(index,1);
     localStorage.setItem("notes", JSON.stringify(notesObj));
     shownotes();
 }

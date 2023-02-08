@@ -57,7 +57,6 @@ function shownotes() {
              <a onclick="deletenote(this.id)" id="${i}" class="btn btn-primary rembtn">Delete Note</a>
            </div>
    </div>`;
-   console.log(i);
     }
     let notesElm = document.getElementById("notes");
     if (notesObj.length != 0) {
